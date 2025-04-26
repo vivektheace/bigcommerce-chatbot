@@ -25,7 +25,11 @@ qdrant-path/**/*.gif
 # Optionally, ignore these full subfolders if they only have images
 data/manuals/
 
+# Ignore the heavy storage.sqlite file
 echo "qdrant-path/collection/manuals/storage.sqlite" >> .gitignore
+
+# Ignore the entire processed_manuals folder
+echo "data/processed_manuals/" >> .gitignore
 
 data/processed_manuals/
 data/tickets/
