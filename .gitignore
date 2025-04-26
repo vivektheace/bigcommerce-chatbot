@@ -1,28 +1,31 @@
+# Ignore entire virtual environment
 venv/
 __pycache__/
 .env
+
+# Ignore compiled files
 *.pyc
 *.pyo
 *.pyd
 *.sqlite
-.qdrant-path/
-# Ignore virtual environment
-venv/
 
-# Ignore system files
-__pycache__/
-*.pyc
-*.pyo
+# Ignore large folders but only images inside them
+data/**/*.png
+data/**/*.jpg
+data/**/*.jpeg
+data/**/*.webp
+data/**/*.gif
 
-# Ignore environment files
-.env
+qdrant-path/**/*.png
+qdrant-path/**/*.jpg
+qdrant-path/**/*.jpeg
+qdrant-path/**/*.webp
+qdrant-path/**/*.gif
 
-# Ignore database and storage
-qdrant-path/
-
-# Ignore generated embeddings and processed manuals
+# Optionally, ignore these full subfolders if they only have images
 data/manuals/
 data/processed_manuals/
 data/tickets/
 data/transcripts/
 data/webpage/
+
