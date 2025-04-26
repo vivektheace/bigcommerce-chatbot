@@ -6,3 +6,23 @@ __pycache__/
 *.pyd
 *.sqlite
 .qdrant-path/
+# Ignore virtual environment
+venv/
+
+# Ignore system files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore environment files
+.env
+
+# Ignore database and storage
+qdrant-path/
+
+# Ignore generated embeddings and processed manuals
+data/manuals/
+data/processed_manuals/
+data/tickets/
+data/transcripts/
+data/webpage/
