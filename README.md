@@ -50,103 +50,139 @@ A chatbot system developed for BigCommerce to assist customers by retrieving inf
 ├── streamlit_app.py
 ├── supervisord.conf
 ```
-## Features
-Retrieval of information from manuals, support tickets, website, and intranet resources.
 
-User authentication using JWT before ticket creation.
+## Overview
 
-Retrieval-Augmented Generation (RAG) powered by LangChain and Qdrant.
+- Retrieval-Augmented Generation (RAG) using LangChain and Qdrant
+- Unified retrieval from manuals, tickets, website data, and intranet resources
+- JWT-based user authentication for ticket operations
+- FastAPI backend with a Streamlit user interface
+- Full Docker-based deployment with Supervisord process management
 
-API backend developed using FastAPI with a Streamlit-based user interface.
+---
 
-Full containerization with Docker for consistent deployment.
+## Tech Stack
 
-## Technology Stack
-Backend: FastAPI, LangChain, LlamaIndex
+- **Backend:** FastAPI, LangChain, LlamaIndex
+- **Frontend:** Streamlit
+- **Database:** Qdrant (vector search)
+- **Containerization:** Docker, Supervisord
+- **Authentication:** JWT Tokens
 
-Frontend: Streamlit
+---
 
-Vector Database: Qdrant
+## Quick Start
 
-Containerization: Docker, Supervisord
+### Clone Repository
 
-Authentication: JWT Tokens
-
-## Installation and Setup
-# Clone the repository:
+```bash
 git clone <repository-url>
 cd bigcommerce-chatbot
+```
 
-# Create and activate a virtual environment (recommended):
+### Set Up Environment
+
+```bash
+# Linux/Mac
+python3 -m venv venv
+source venv/bin/activate
+
+# Windows
 python -m venv venv
-source venv/bin/activate   # Linux/Mac
-.\venv\Scripts\activate     # Windows
+.\venv\Scripts\activate
+```
 
-## Install project dependencies:
+### Install Requirements
+
+```bash
 pip install -r requirements.txt
-Set up environment variables:
-Create a .env file and define the necessary variables.
+```
 
-## Start the FastAPI server:
+### Configure Environment
+
+- Create a `.env` file in the root folder with required variables.
+
+---
+
+## Running Locally
+
+### Launch API Server
+
+```bash
 uvicorn routes:app --host 0.0.0.0 --port 8000 --reload
+```
 
-## Start the Streamlit application:
+- Swagger UI: [http://localhost:8000/docs](http://localhost:8000/docs)
+
+### Launch Streamlit App
+
+```bash
 streamlit run streamlit_app.py
+```
 
-## Usage
-Access the API documentation via Swagger UI:
-http://localhost:8000/docs
+- Streamlit UI: [http://localhost:8501](http://localhost:8501)
 
-Access the Streamlit chatbot interface:
-http://localhost:8501
+> **Note:** JWT authentication is required for ticket submission.
 
-## Users must authenticate before raising support tickets.
+---
 
 ## Docker Deployment
-Build the Docker image:
+
+### Build Image
+
+```bash
 docker build -t bigcommerce-chatbot .
+```
 
-Run the Docker container:
+### Run Container
+
+```bash
 docker run -d -p 8000:8000 -p 8501:8501 bigcommerce-chatbot
+```
 
-## Future Enhancements
-WhatsApp integration via Twilio.
+---
 
-Multilingual support for chatbot interactions.
+## Enhancements (Planned)
 
-Auto-escalation mechanism for unresolved queries.
+- WhatsApp integration (via Twilio)
+- Multilingual chatbot support
+- Auto-escalation for unresolved queries
+- Caching common queries for faster response
 
-Caching frequently asked questions for faster responses.
+---
 
-## RAID Matrix
+## RAID Analysis
 
-Risk	Assumption	Issue	Dependency
-High chatbot traffic	Users prefer chatbot support over traditional channels	Response latency under high load	Qdrant indexing and retrieval efficiency
-Data security requirements	Infrastructure remains internal to BigCommerce	Unauthorized access incidents	Secure JWT and API management
-Scalability challenges	Initial traffic estimations	Increased concurrent user demand	Container orchestration for scaling
+| Risk                   | Assumption                            | Issue                         | Dependency                       |
+|-------------------------|---------------------------------------|-------------------------------|----------------------------------|
+| High chatbot load       | User preference shift to chatbot      | Latency under heavy traffic    | Qdrant retrieval performance     |
+| Data security needs     | Internal hosting of infrastructure    | Unauthorized access risks      | Secure JWT and API authorization |
+| Scaling challenges      | Traffic projections may fluctuate     | Resource limitations           | Container orchestration required |
 
-## Acknowledgements
-This project demonstrates the use of modern Retrieval-Augmented Generation (RAG) techniques, semantic search, and containerized deployment practices for enterprise-grade chatbot solutions.
+---
 
-## Best Practices Followed
-Modular codebase with clear separation of concerns.
+## Best Practices
 
-Centralized configuration using environment variables.
+- Modularized and scalable codebase
+- Centralized configuration via `.env`
+- Containerized setup for reliable deployments
+- Detailed API and project documentation
+- Forward-compatible design for new platforms
 
-Containerized architecture for consistent environment setup and deployment.
-
-Comprehensive documentation of API and project usage.
-
-Designed for future extensibility to new platforms and channels.
+---
 
 ## References
-FastAPI Documentation
 
-Streamlit Documentation
+- [FastAPI](https://fastapi.tiangolo.com/)
+- [Streamlit](https://docs.streamlit.io/)
+- [Qdrant](https://qdrant.tech/documentation/)
+- [LangChain](https://python.langchain.com/)
 
-Qdrant Documentation
-
-LangChain Documentation
+---
 
 ## Notes
-This documentation is prepared following professional software development and deployment standards to ensure clarity, maintainability, and ease of onboarding for new developers or stakeholders.
+
+This project follows industry standards for RAG pipelines, secure authentication, and containerized deployments, ensuring maintainability and ease of scaling for enterprise use.
+
+---
+
