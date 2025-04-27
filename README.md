@@ -183,9 +183,9 @@ docker run -d -p 8000:8000 -p 8501:8501 bigcommerce-chatbot
 ## Notes
 
 This project follows industry standards for RAG pipelines, secure authentication, and containerized deployments, ensuring maintainability and ease of scaling for enterprise use.
-```Plaintext
-DUE TO LARGE SIZE ,IF DATA FOLDER DOESNT OPEN ,PLEASE LET ME KNOW
-SAME GOES WITH THE QDRANT-PATH FOLDER
-SORRY FOR THE INCONVENIENCE ```
+
+https://drive.google.com/drive/folders/1blZcWkY_Xcuzi1qJyuK0PogFiYUxjM8s?usp=sharing
+Due to size restrictions these folders(DATA & QDRANT-PATH)  i kept in DRIVE 
+SORRY FOR THE INCONVENIENCE
 ---
 
