@@ -1,3 +1,7 @@
+```Plaintext
+DUE TO LARGE SIZE ,IF DATA FOLDER DOESNT OPEN ,PLEASE LET ME KNOW
+SAME GOES WITH THE QDRANT-PATH FOLDER
+SORRY FOR THE INCONVENIENCE ```
 ## BigCommerce Chatbot
 A chatbot system developed for BigCommerce to assist customers by retrieving information from product manuals, support tickets, website content, and intranet videos.
 
